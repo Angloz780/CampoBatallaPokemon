@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="707.0" prefWidth="830.0" spacing="20.0" style="-fx-background-color: #675073;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <AnchorPane minHeight="475.0" minWidth="790.0" prefHeight="583.0" prefWidth="790.0" style="-fx-background-color: #7D6A87;">
+      <children>
+         <SplitPane dividerPositions="0.6515151515151515" layoutX="22.0" layoutY="23.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+           <items>
+             <AnchorPane fx:id="panel1" minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="180.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ImageView fx:id="imagen1" fitHeight="140.0" fitWidth="150.0" layoutX="4.0" layoutY="14.0" onMouseClicked="#pulsar1" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/greninja.gif" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="10.0" fitWidth="20.0" layoutX="139.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/R.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </AnchorPane>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <Text fill="#ddd82f" layoutX="6.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
+                        <font>
+                           <Font name="Arial" size="12.0" />
+                        </font>
+                     </Text>
+                     <ProgressBar fx:id="barra1" layoutX="31.0" layoutY="15.0" prefHeight="14.0" prefWidth="120.0" progress="1.0" style="-fx-accent: green;" />
+                      <Label fx:id="tipo1" layoutX="6.0" layoutY="33.0" text="Agua / Siniestro" textFill="WHITE" />
+                  </children>
+               </AnchorPane>
+           </items>
+         </SplitPane>
+         <SplitPane dividerPositions="0.6262626262626263" layoutX="616.0" layoutY="23.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+           <items>
+             <AnchorPane fx:id="panel3" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ImageView fx:id="imagen3" fitHeight="150.0" fitWidth="160.0" layoutX="-1.0" layoutY="-6.0" onMouseClicked="#pulsar3" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/moltres.gif" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="10.0" fitWidth="20.0" layoutX="144.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/R.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </AnchorPane>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ProgressBar fx:id="barra3" layoutX="31.0" layoutY="18.0" prefHeight="14.0" prefWidth="120.0" progress="1.0" style="-fx-accent: green;" />
+                     <Text fill="#ddd82f" layoutX="6.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
+                        <font>
+                           <Font name="Arial" size="12.0" />
+                        </font>
+                     </Text>
+                      <Label fx:id="tipo3" layoutX="6.0" layoutY="36.0" text="Fuego / Volador" textFill="WHITE" />
+                  </children>
+               </AnchorPane>
+           </items>
+         </SplitPane>
+         <SplitPane dividerPositions="0.6616161616161617" layoutX="616.0" layoutY="298.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+           <items>
+             <AnchorPane fx:id="panel6" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ImageView fx:id="imagen6" fitHeight="130.0" fitWidth="140.0" layoutX="26.0" onMouseClicked="#pulsar6" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/salazzle.gif" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="10.0" fitWidth="20.0" layoutX="143.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/R.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </AnchorPane>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ProgressBar fx:id="barra6" layoutX="31.0" layoutY="16.0" prefHeight="14.0" prefWidth="120.0" progress="1.0" style="-fx-accent: green;" />
+                     <Text fill="#ddd82f" layoutX="6.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
+                        <font>
+                           <Font name="Arial" size="12.0" />
+                        </font>
+                     </Text>
+                      <Label fx:id="tipo6" layoutX="6.0" layoutY="32.0" text="Lucha / Agua" textFill="WHITE" />
+                  </children>
+               </AnchorPane>
+           </items>
+         </SplitPane>
+         <SplitPane dividerPositions="0.6666666666666666" layoutX="22.0" layoutY="298.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+           <items>
+             <AnchorPane fx:id="panel4" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ImageView fx:id="imagen4" fitHeight="120.0" fitWidth="130.0" layoutX="33.0" layoutY="5.0" onMouseClicked="#pulsar4" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/ursifu.gif" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="15.0" fitWidth="25.0" layoutX="140.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/F.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </AnchorPane>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ProgressBar fx:id="barra4" layoutX="31.0" layoutY="14.0" prefHeight="14.0" prefWidth="120.0" progress="1.0" style="-fx-accent: green;" />
+                     <Text fill="#ddd82f" layoutX="6.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
+                        <font>
+                           <Font name="Arial" size="12.0" />
+                        </font>
+                     </Text>
+                      <Label fx:id="tipo4" layoutX="6.0" layoutY="32.0" text="Veneno / Fuego" textFill="WHITE" />
+                  </children>
+               </AnchorPane>
+           </items>
+         </SplitPane>
+         <SplitPane dividerPositions="0.6414141414141414" layoutX="315.0" layoutY="23.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+           <items>
+             <AnchorPane fx:id="panel2" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ImageView fx:id="imagen2" fitHeight="110.0" fitWidth="120.0" layoutX="25.0" layoutY="7.0" onMouseClicked="#pulsar2" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/oranguru.gif" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="10.0" fitWidth="20.0" layoutX="144.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/R.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </AnchorPane>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ProgressBar fx:id="barra2" layoutX="28.0" layoutY="14.0" prefHeight="14.0" prefWidth="120.0" progress="1.0" style="-fx-accent: green;" />
+                     <Text fill="#ddd82f" layoutX="5.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
+                        <font>
+                           <Font name="Arial" size="12.0" />
+                        </font>
+                     </Text>
+                      <Label fx:id="tipo2" layoutX="5.0" layoutY="34.0" text="Normal / Psíquico" textFill="WHITE" />
+                  </children>
+               </AnchorPane>
+           </items>
+         </SplitPane>
+         <SplitPane dividerPositions="0.6818181818181818" layoutX="315.0" layoutY="298.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+           <items>
+             <AnchorPane fx:id="panel5" minHeight="0.0" minWidth="0.0" prefHeight="135.0" prefWidth="158.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ImageView fx:id="imagen5" fitHeight="135.0" fitWidth="145.0" layoutX="7.0" layoutY="29.0" onMouseClicked="#pulsar5" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/metagross.gif" />
+                        </image>
+                     </ImageView>
+                     <ImageView fitHeight="10.0" fitWidth="20.0" layoutX="144.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../../../../../../../Pokemon/src/main/java/com/example/pokemon/Imagenes/R.png" />
+                        </image>
+                     </ImageView>
+                  </children>
+               </AnchorPane>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #7D6A87;">
+                  <children>
+                     <ProgressBar fx:id="barra5" layoutX="31.0" layoutY="14.0" prefHeight="14.0" prefWidth="120.0" progress="1.0" style="-fx-accent: green;" />
+                     <Text fill="#ddd82f" layoutX="6.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
+                        <font>
+                           <Font name="Arial" size="12.0" />
+                        </font>
+                     </Text>
+                      <Label fx:id="tipo5" layoutX="6.0" layoutY="30.0" text="Acero / Psíquico" textFill="WHITE" />
+                  </children>
+               </AnchorPane>
+           </items>
+         </SplitPane>
+         <Text fill="WHITE" layoutX="14.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elegir un Pokémon">
+            <font>
+               <Font name="Arial" size="12.0" />
+            </font>
+         </Text>
+          <Button fx:id="boton1" layoutX="677.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#cambiarPantalla" text="Salir" >
+              <font>
+                  <Font name="Gadugi Bold" size="14.0" />
+              </font>
+          </Button>
+         <Label fx:id="pokemon1" layoutX="22.0" layoutY="6.0" text="Greninja" textFill="WHITE" />
+         <Label fx:id="pokemon3" layoutX="616.0" layoutY="6.0" text="Moltres" textFill="WHITE" />
+         <Label fx:id="pokemon5" layoutX="315.0" layoutY="279.0" text="Metagross" textFill="WHITE" />
+         <Label fx:id="pokemon6" layoutX="616.0" layoutY="279.0" text="Latios" textFill="WHITE" />
+         <Label fx:id="pokemon4" layoutX="22.0" layoutY="279.0" text="Gardevoir" textFill="WHITE" />
+         <Label fx:id="pokemon2" layoutX="315.0" layoutY="6.0" text="Oranguru" textFill="WHITE" />
+         <Label fx:id="nivel1" layoutX="154.0" layoutY="6.0" text="Nv 65 " textFill="WHITE" />
+         <Label fx:id="nivel2" layoutX="447.0" layoutY="6.0" text="Nv 45" textFill="WHITE" />
+         <Label fx:id="nivel3" layoutX="745.0" layoutY="6.0" text="Nv 75" textFill="WHITE" />
+         <Label fx:id="nivel4" layoutX="158.0" layoutY="279.0" text="Nv 65" textFill="WHITE" />
+         <Label fx:id="nivel5" layoutX="450.0" layoutY="279.0" text="Nv 65" textFill="WHITE" />
+         <Label fx:id="nivel6" layoutX="747.0" layoutY="279.0" text="Nv 75" textFill="WHITE" />
+
+      </children>
+   </AnchorPane>
+
+    <Label fx:id="welcomeText" />
+</VBox>
