@@ -21,12 +21,12 @@ public class HelloController {
     int cont = 0;
     ArrayList <Pokemon> ListaPokemonMios = new ArrayList<>();
 
-    Pokemon p1 = new Pokemon(1,"Greninja", 348f, 348f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja.gif"), "Agua / Siniestro");
-    Pokemon p2 = new Pokemon(2,"Oranguru", 384f, 384f, "LV.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\oranguru.gif"), "Normal / Psíquico");
-    Pokemon p3 = new Pokemon(3,"Moltres", 384f, 384f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\moltres.gif"), "Fuego / Volador");
-    Pokemon p4 = new Pokemon(4,"Salazzle", 340f, 340f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\salazzle.gif"), "Veneno / Fuego");
-    Pokemon p5 = new Pokemon(5,"Metagross", 364f, 364f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\metagross.gif"), "Acero / Psíquico");
-    Pokemon p6 = new Pokemon(6,"Urshifu", 384f, 384f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\ursifu.gif"), "Lucha / Agua");
+    Pokemon p1 = new Pokemon(1,"Greninja", 348f, 348f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja2.gif"),"Agua / Siniestro");
+    Pokemon p2 = new Pokemon(2,"Oranguru", 384f, 384f, "LV.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\oranguru.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\oranguru2.gif"),"Normal / Psíquico");
+    Pokemon p3 = new Pokemon(3,"Moltres", 384f, 384f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\moltres.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\moltres2.gif"),"Fuego / Volador");
+    Pokemon p4 = new Pokemon(4,"Salazzle", 340f, 340f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\salazzle.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\salazzle2.gif"),"Veneno / Fuego");
+    Pokemon p5 = new Pokemon(5,"Metagross", 364f, 364f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\metagross.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\metagross2.gif"),"Acero / Psíquico");
+    Pokemon p6 = new Pokemon(6,"Urshifu", 384f, 384f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\ursifu.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\ursifu2.gif"),"Lucha / Agua");
 
 
     //Greninja
@@ -113,9 +113,12 @@ public class HelloController {
     @FXML
     Label tipo6;
 
-    //Botón cambiar a siguiente
+    //Botones cambiar a siguiente
     @FXML
     Button boton1;
+    @FXML
+    Button boton2;
+
 
     @FXML
     public void initialize() {
@@ -202,6 +205,7 @@ public class HelloController {
         pokemonSeleccionado = p1;
 
         boton1.setText("Siguiente");
+        boton2.setText("Estadíticas");
     }
 
     @FXML
@@ -237,6 +241,7 @@ public class HelloController {
         pokemonSeleccionado = p2;
 
         boton1.setText("Siguiente");
+        boton2.setText("Estadíticas");
     }
 
     @FXML
@@ -272,6 +277,7 @@ public class HelloController {
         pokemonSeleccionado = p3;
 
         boton1.setText("Siguiente");
+        boton2.setText("Estadíticas");
     }
 
     @FXML
@@ -307,6 +313,7 @@ public class HelloController {
         pokemonSeleccionado = p4;
 
         boton1.setText("Siguiente");
+        boton2.setText("Estadíticas");
     }
 
     @FXML
@@ -342,6 +349,7 @@ public class HelloController {
         pokemonSeleccionado = p5;
 
         boton1.setText("Siguiente");
+        boton2.setText("Estadíticas");
     }
 
     @FXML
@@ -377,6 +385,7 @@ public class HelloController {
         pokemonSeleccionado = p6;
 
         boton1.setText("Siguiente");
+        boton2.setText("Estadíticas");
     }
 
     Stage stage2;
@@ -384,12 +393,38 @@ public class HelloController {
     @FXML
     protected void cambiarPantalla() {
 
-        System.out.println("Boton pulsado pasamos al siguiente escenario");
+        System.out.println("Botón pulsado pasamos al siguiente escenario");
 
         try {
 
             stage2 = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("campoBatalla.fxml"));
+
+            AnchorPane root = loader.load();
+            Scene scene = new Scene(root, 960, 727);
+
+            stage2.setScene(scene);
+            stage2.show();
+
+            HelloController2 v = loader.getController();
+            v.Pokemones(pokemonSeleccionado);
+            v.enviarDatos(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void cambiarPantalla2() {
+
+        System.out.println("Botón pulsado pasamos a la pantalla de estadísticas");
+
+        try {
+
+            stage2 = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Estadisticas.fxml"));
 
             AnchorPane root = loader.load();
             Scene scene = new Scene(root, 960, 727);
@@ -426,14 +461,16 @@ class Pokemon {
         Float vida;
         String nivel;
         File imagen;
+        File imagen2;
         String tipo;
 
-        public Pokemon(int index, String pokemon, Float barra, Float vida, String nivel, File imagen, String tipo) {
+        public Pokemon(int index, String pokemon, Float barra, Float vida, String nivel, File imagen,File imagen2, String tipo) {
             this.pokemon = pokemon;
             this.barra = barra;
             this.vida = vida;
             this.nivel = nivel;
             this.imagen = imagen;
+            this.imagen2 = imagen2;
             this.tipo = tipo;
         }
 

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="727.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloController2">
+<AnchorPane prefHeight="727.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloController2">
     <ImageView fx:id="fondoInterfaz" fitHeight="563.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
-    <AnchorPane fx:id="btSecundarios" layoutY="541.0" prefHeight="188.0" prefWidth="675.0" style="-fx-background-color: #f7f995; -fx-border-color: #0051ff; -fx-border-width: 5;">
-        <Button fx:id="btAtaque1" layoutX="100.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#btSeguro" prefHeight="42.0" prefWidth="187.0" style="-fx-background-color: #3C8253; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #00FF51; -fx-border-width: 3;" text="ATAQUE SEGURO" textFill="WHITE">
+    <AnchorPane fx:id="btsSecun" layoutY="541.0" prefHeight="188.0" prefWidth="675.0" style="-fx-background-color: #7D6A87; -fx-border-color: #675073; -fx-border-width: 5;">
+        <Button fx:id="ataqueSeguro" layoutX="115.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#btSeguro" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #00FF51; -fx-border-width: 3;" text="Ataque seguro" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -20,7 +17,7 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="btAtaque2" layoutX="393.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#btArriesgado" prefHeight="40.0" prefWidth="222.0" style="-fx-background-color: #FFAE00; -fx-border-color: #FF8C00; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-width: 3;" text="ATAQUE ARRIESGADO" textFill="WHITE">
+        <Button fx:id="ataqueArriesgado" layoutX="404.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#btArriesgado" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: 000000; -fx-border-color: #FF8C00; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-width: 3;" text="Ataque arriesgado" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -28,7 +25,7 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="btAtaque3" layoutX="52.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#btMuyArriesgado" prefHeight="45.0" prefWidth="283.0" style="-fx-background-color: #FF0000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #8B0000; -fx-border-width: 3;" text="ATAQUE MUY ARRIESGADO" textFill="WHITE">
+        <Button fx:id="atqueMuyArriesgado" layoutX="83.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#btMuyArriesgado" prefHeight="45.0" prefWidth="233.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #8B0000; -fx-border-width: 3;" text="Ataque muy arriesgado" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -36,7 +33,7 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="btCancelar" layoutX="439.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#btCancelar" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: #7F9AF5; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #003AFF; -fx-border-width: 3;" text="CANCELAR" textFill="WHITE">
+        <Button fx:id="cancelar" layoutX="439.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#btCancelar" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #003AFF; -fx-border-width: 3;" text="Cancelar" textFill="WHITE">
             <font>
                 <Font name="Noto Sans Bold" size="18.0" />
             </font>
@@ -45,8 +42,8 @@
             </effect>
         </Button>
     </AnchorPane>
-    <AnchorPane fx:id="btPrincipales" layoutX="677.0" layoutY="541.0" prefHeight="188.0" prefWidth="283.0" style="-fx-background-color: #f7f995; -fx-border-color: #0051ff; -fx-border-width: 5;">
-        <Button fx:id="btCurar" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="76.0" mnemonicParsing="false" onMouseClicked="#subirVida" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #a7f594; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #00FF00; -fx-border-width: 3;" text="CURARSE" textAlignment="CENTER" textFill="WHITE">
+    <AnchorPane fx:id="btsPrin" layoutX="675.0" layoutY="541.0" prefHeight="188.0" prefWidth="287.0" style="-fx-background-color: #7D6A87; -fx-border-color: #675073; -fx-border-width: 5;">
+        <Button fx:id="btCurar" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#subirVida" prefHeight="43.0" prefWidth="180.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #00FF00; -fx-border-width: 3;" text="Curar Pokemon" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Noto Sans Bold" size="18.0" />
             </font>
@@ -54,7 +51,7 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="btAtacar" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="76.0" mnemonicParsing="false" onMouseClicked="#btAtaques" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #f19191; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #ff0000; -fx-border-width: 3;" text="ATACAR" textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="btAtacar" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#btAtaques" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #ff0000; -fx-border-width: 3;" text="Atacar" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Noto Sans Bold" size="18.0" />
             </font>
@@ -63,19 +60,19 @@
             </effect>
         </Button>
     </AnchorPane>
-    <AnchorPane fx:id="panelAliado" layoutX="78.0" layoutY="91.0" prefHeight="98.0" prefWidth="334.0" style="-fx-background-color: #f7f995; -fx-background-radius: 15 7 15 7; -fx-border-radius: 15 7 15 7; -fx-border-color: #212126; -fx-border-width: 3;">
-        <ProgressBar fx:id="vidaAliado" layoutX="141.0" layoutY="65.0" prefWidth="200.0" progress="1.0" />
-        <Text fx:id="PSAliado" layoutX="105.0" layoutY="78.0" onMouseEntered="#cambiartextoAliado" onMouseExited="#cambiartextoAliado2" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
+    <AnchorPane fx:id="panelEnemigo" layoutX="90.0" layoutY="92.0" prefHeight="98.0" prefWidth="334.0" style="-fx-background-color: #7D6A87; -fx-background-radius: 15 7 15 7; -fx-border-radius: 15 7 15 7; -fx-border-color: #675073; -fx-border-width: 3;">
+        <ProgressBar fx:id="vidaEnemigo" layoutX="124.0" layoutY="64.0" prefWidth="200.0" progress="1.0" />
+        <Text fx:id="PsEnemigo" fill="WHITE" layoutX="79.0" layoutY="77.0" onMouseEntered="#cambiartextoEnemigo" onMouseExited="#cambiartextoEnemigo2" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
             <font>
                 <Font name="Georgia Bold" size="14.0" />
             </font>
         </Text>
-        <Label fx:id="nombreAliado" layoutX="36.0" layoutY="14.0">
+        <Label fx:id="nomEnemigo" layoutX="36.0" layoutY="14.0" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label fx:id="nivelAliado" layoutX="279.0" layoutY="14.0">
+        <Label fx:id="nvlEnemigo" layoutX="279.0" layoutY="14.0" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -84,19 +81,19 @@
             <DropShadow />
         </effect>
     </AnchorPane>
-    <AnchorPane fx:id="panelEnemigo" layoutX="550.0" layoutY="406.0" prefHeight="98.0" prefWidth="355.0" style="-fx-background-color: #f7f995; -fx-background-radius: 15 7 15 7; -fx-border-width: 3; -fx-border-radius: 15 7 15 7; -fx-border-color: #212126;">
-        <ProgressBar fx:id="vidaEnemigo" layoutX="141.0" layoutY="65.0" prefWidth="200.0" progress="1.0" />
-        <Text fx:id="PSEnemigo" layoutX="105.0" layoutY="78.0" onMouseEntered="#cambiartextoEnemigo" onMouseExited="#cambiartextoEnemigo2" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
+    <AnchorPane fx:id="panelMiPokemon" layoutX="550.0" layoutY="406.0" prefHeight="98.0" prefWidth="322.0" style="-fx-background-color: #7D6A87; -fx-background-radius: 15 7 15 7; -fx-border-width: 3; -fx-border-radius: 15 7 15 7; -fx-border-color: #675073;">
+        <ProgressBar fx:id="vidaMiPokemon" layoutX="103.0" layoutY="64.0" prefWidth="200.0" progress="1.0" />
+        <Text fx:id="PsMiPokemon" fill="WHITE" layoutX="65.0" layoutY="77.0" onMouseEntered="#cambiartextoAliado" onMouseExited="#cambiartextoAliado2" strokeType="OUTSIDE" strokeWidth="0.0" text="PS">
             <font>
                 <Font name="Georgia Bold" size="14.0" />
             </font>
         </Text>
-        <Label fx:id="nombreEnemigo" layoutX="48.0" layoutY="14.0">
+        <Label fx:id="nomMiPokemon" layoutX="48.0" layoutY="14.0" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-        <Label fx:id="nivelEnemigo" layoutX="297.0" layoutY="14.0">
+        <Label fx:id="nvlMiPokemon" layoutX="297.0" layoutY="14.0" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -105,6 +102,6 @@
             <DropShadow />
         </effect>
     </AnchorPane>
-    <ImageView fx:id="pokemonEnemigo" fitHeight="254.0" fitWidth="306.0" layoutX="127.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" />
-    <ImageView fx:id="miPokemon" fitHeight="254.0" fitWidth="306.0" layoutX="593.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true" />
+    <ImageView fx:id="miPokemon" fitHeight="234.0" fitWidth="296.0" layoutX="122.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" />
+    <ImageView fx:id="enemigo" fitHeight="210.0" fitWidth="247.0" layoutX="594.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" />
 </AnchorPane>

@@ -19,59 +19,66 @@ public class HelloController2 {
 
     ArrayList <Pokemon2> ListaPokemon = new ArrayList<>();
 
-    Fondo f1 = new Fondo(new File("src\\main\\java\\com\\example\\entregapokemon1\\Imagenes\\Campo_de_batalla_DPPt_2.png"));
+    Fondo f1 = new Fondo(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\campo.png"));
 
-    Pokemon2 p21 = new Pokemon2("Mienshao", 248f, 248f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\mienshao.gif"));
-    Pokemon2 p22 = new Pokemon2("Decidueye", 267f, 267f, "Lv.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\decidueye.gif"));
-    Pokemon2 p23 = new Pokemon2("Braviary", 300f, 300f,"Lv.50", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\braviary.gif"));
-    Pokemon2 p24 = new Pokemon2("Lugia", 340f, 340f, "Lv.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\lugia.gif"));
+    Pokemon2 p7 = new Pokemon2("Drampa", 360f, 360f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\drampa.gif"));
+    Pokemon2 p8 = new Pokemon2("Melmetal", 474f, 474f, "Lv.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\melmetal.gif"));
+    Pokemon2 p9 = new Pokemon2("Toxtricity", 354f, 354f,"Lv.50", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\toxtricity.gif"));
+    Pokemon2 p10 = new Pokemon2("Lugia", 416f, 416f, "Lv.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\lugia.gif"));
 
+    //Imagen campo de batalla
     @FXML
     ImageView fondoInterfaz;
 
+    //Botones curar y atacar
     @FXML
-    AnchorPane btPrincipales;
+    AnchorPane btsPrin;
     @FXML
     Button btCurar;
     @FXML
     Button btAtacar;
 
+    //Botones de ataque y cancelar
     @FXML
-    AnchorPane btSecundarios;
+    AnchorPane btsSecun;
     @FXML
-    Button btAtaque1;
+    Button ataqueSeguro;
     @FXML
-    Button btAtaque2;
+    Button ataqueArriesgado;
     @FXML
-    Button btAtaque3;
+    Button atqueMuyArriesgado;
     @FXML
-    Button btCancelar;
+    Button cancelar;
 
+    //Datos mi Pokemon elegido
     @FXML
     ImageView miPokemon;
     @FXML
-    Label nombreAliado;
+    ImageView sexo;
     @FXML
-    Label nivelAliado;
+    Label nomMiPokemon;
     @FXML
-    ProgressBar vidaAliado;
+    Label nvlMiPokemon;
     @FXML
-    AnchorPane panelAliado;
+    ProgressBar vidaMiPokemon;
     @FXML
-    Text PSAliado;
+    AnchorPane panelMiPokemon;
+    @FXML
+    Text PsMiPokemon;
 
+    //Datos Pokemon enemigo
     @FXML
-    ImageView pokemonEnemigo;
+    ImageView enemigo;
     @FXML
-    Label nombreEnemigo;
+    Label nomEnemigo;
     @FXML
-    Label nivelEnemigo;
+    Label nvlEnemigo;
     @FXML
     ProgressBar vidaEnemigo;
     @FXML
     AnchorPane panelEnemigo;
     @FXML
-    Text PSEnemigo;
+    Text PsEnemigo;
 
     private HelloController HelloController;
 
@@ -82,29 +89,37 @@ public class HelloController2 {
 
         this.pokemonSeleccionado = pokemonSeleccionado;
 
-        Image imagen1 = new Image(pokemonSeleccionado.imagen.toURI().toString());
+        Image imagen1 = new Image(pokemonSeleccionado.imagen2.toURI().toString());
         miPokemon.setImage(imagen1);
-        nombreAliado.setText(pokemonSeleccionado.pokemon);
-        nivelAliado.setText(pokemonSeleccionado.nivel);
-        vidaAliado.setProgress(1.0f);
+        nomMiPokemon.setText(pokemonSeleccionado.pokemon);
+        nvlMiPokemon.setText(pokemonSeleccionado.nivel);
+        vidaMiPokemon.setProgress(1.0f);
 
-        ListaPokemon.add(p21);
-        ListaPokemon.add(p22);
-        ListaPokemon.add(p23);
-        ListaPokemon.add(p24);
+        //Mienshao
+        ListaPokemon.add(p7);
+        //Decidueye
+        ListaPokemon.add(p8);
+        //Braviary
+        ListaPokemon.add(p9);
+        //Lugia
+        ListaPokemon.add(p10);
 
         oponente = ListaPokemon.get((int) (Math.random() * ListaPokemon.size()));
 
         Image imagen2 = new Image(oponente.imagen2.toURI().toString());
-        pokemonEnemigo.setImage(imagen2);
-        nombreEnemigo.setText(oponente.pokemon2);
+        enemigo.setImage(imagen2);
+        nomEnemigo.setText(oponente.pokemon2);
         vidaEnemigo.setProgress(1.0f);
-        nivelEnemigo.setText(oponente.nivel2);
+        nvlEnemigo.setText(oponente.nivel2);
 
-        btAtaque1.setVisible(false);
-        btAtaque2.setVisible(false);
-        btAtaque3.setVisible(false);
-        btCancelar.setVisible(false);
+        //Ataque seguro
+        ataqueSeguro.setVisible(false);
+        //Ataque arriesgado
+        ataqueArriesgado.setVisible(false);
+        //Ataque muy arriesgado
+        atqueMuyArriesgado.setVisible(false);
+        //Cancelar
+        cancelar.setVisible(false);
 
     }
 
@@ -114,10 +129,10 @@ public class HelloController2 {
         System.out.println("BotonAtaqueSeleccionado");
         btAtacar.setVisible(false);
         btCurar.setVisible(false);
-        btAtaque1.setVisible(true);
-        btAtaque2.setVisible(true);
-        btAtaque3.setVisible(true);
-        btCancelar.setVisible(true);
+        ataqueSeguro.setVisible(true);
+        ataqueArriesgado.setVisible(true);
+        atqueMuyArriesgado.setVisible(true);
+        cancelar.setVisible(true);
 
     }
 
@@ -129,7 +144,7 @@ public class HelloController2 {
 
         int rdmVida = r.nextInt(50) + 25;
         pokemonSeleccionado.vida += rdmVida;
-        vidaAliado.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
+        vidaMiPokemon.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
         System.out.println("Curacion1 de " + rdmVida);
 
         rdmVida = r.nextInt(50) + 25;
@@ -146,13 +161,13 @@ public class HelloController2 {
         System.out.println("BotonSeguroSeleccionado");
 
         pokemonSeleccionado.barra -= danoSeguro;
-        vidaAliado.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
-        System.out.println("Daño seguro1 de " + danoSeguro);
+        vidaMiPokemon.setProgress(pokemonSeleccionado.barra / pokemonSeleccionado.vida);
+        System.out.println("El ataque seguro1 ha hecho " + danoSeguro +"ps de daño");
         controlarDeLaVidaAliado();
 
         oponente.vida2 -= danoSeguro;
         vidaEnemigo.setProgress(oponente.vida2 / oponente.barra2);
-        System.out.println("Daño seguro2 de " + danoSeguro);
+        System.out.println("El ataque seguro2 ha hecho " + danoSeguro +"ps de daño");
         controlarDeLaVidaEnemigo();
 
     }
@@ -165,14 +180,14 @@ public class HelloController2 {
 
         int rdmArriesgado = r.nextInt(15) + 10;
         pokemonSeleccionado.barra-= rdmArriesgado;
-        vidaAliado.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
-        System.out.println("Daño arriesgado1 de " + rdmArriesgado);
+        vidaMiPokemon.setProgress(pokemonSeleccionado.barra / pokemonSeleccionado.vida);
+        System.out.println("El ataque arriesgado1 ha hecho " + rdmArriesgado+"ps de daño");
         controlarDeLaVidaAliado();
 
         rdmArriesgado = r.nextInt(15) + 10;
         oponente.vida2 -= rdmArriesgado;
         vidaEnemigo.setProgress(oponente.vida2 / oponente.barra2);
-        System.out.println("Daño arriesgado2 de " + rdmArriesgado);
+        System.out.println("El ataque arriesgado2 ha hecho " + rdmArriesgado+"ps de daño");
         controlarDeLaVidaEnemigo();
 
     }
@@ -185,14 +200,14 @@ public class HelloController2 {
 
         int rdmMuyArriesgado = r.nextInt(50);
         pokemonSeleccionado.barra -= rdmMuyArriesgado;
-        vidaAliado.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
-        System.out.println("Daño muy arriesgado1 de " + rdmMuyArriesgado);
+        vidaMiPokemon.setProgress(pokemonSeleccionado.barra / pokemonSeleccionado.vida);
+        System.out.println("El ataque muy arriesgado1 ha hecho " + rdmMuyArriesgado+"ps de daño");
         controlarDeLaVidaAliado();
 
         rdmMuyArriesgado = r.nextInt(50);
         oponente.vida2 -= rdmMuyArriesgado;
         vidaEnemigo.setProgress(oponente.vida2 / oponente.barra2);
-        System.out.println("Daño muy arriesgado2 de " + rdmMuyArriesgado);
+        System.out.println("El ataque muy arriesgado2 ha hecho " + rdmMuyArriesgado+"ps de daño");
         controlarDeLaVidaEnemigo();
 
     }
@@ -203,44 +218,44 @@ public class HelloController2 {
         System.out.println("BotonCancelarSeleccionado");
         btAtacar.setVisible(true);
         btCurar.setVisible(true);
-        btAtaque1.setVisible(false);
-        btAtaque2.setVisible(false);
-        btAtaque3.setVisible(false);
-        btCancelar.setVisible(false);
+        ataqueSeguro.setVisible(false);
+        ataqueArriesgado.setVisible(false);
+        atqueMuyArriesgado.setVisible(false);
+        cancelar.setVisible(false);
 
     }
 
     @FXML
     protected void cambiartextoEnemigo() {
-        PSEnemigo.setText(String.valueOf(oponente.vida2));
+        PsEnemigo.setText(String.valueOf(oponente.barra2));
     }
 
     @FXML
     protected void cambiartextoEnemigo2() {
-        PSEnemigo.setText("PS");
+        PsEnemigo.setText("PS");
     }
 
     @FXML
     protected void cambiartextoAliado() {
-        PSAliado.setText(String.valueOf(pokemonSeleccionado.vida));
+        PsMiPokemon.setText(String.valueOf(pokemonSeleccionado.barra));
     }
 
     @FXML
     protected void cambiartextoAliado2() {
-        PSAliado.setText("PS");
+        PsMiPokemon.setText("PS");
     }
 
     private void controlarDeLaVidaAliado () {
 
-        if (pokemonSeleccionado.vida == 0) {
-            showAlert1(alertaPokemonAliado(pokemonSeleccionado));
+        if (pokemonSeleccionado.vida <= 0) {
+            showAlert1(alertaPokemonAliado(oponente));
         }
     }
 
     private void controlarDeLaVidaEnemigo() {
 
-        if (oponente.vida2 == 0) {
-            showAlert2(alertaPokemonEnemigo(oponente));
+        if (oponente.vida2 <= 0) {
+            showAlert2(alertaPokemonEnemigo(pokemonSeleccionado));
         }
 
     }
@@ -271,13 +286,13 @@ public class HelloController2 {
     }
 
 
-    public Alert alertaPokemonEnemigo(Pokemon2 oponente) {
+    public Alert alertaPokemonEnemigo(Pokemon oponente) {
 
         Alert customAlert = new Alert(Alert.AlertType.NONE);
 
         customAlert.setTitle("Pokemon Ganador");
-        customAlert.setContentText("El pokemon ganador es " +oponente.pokemon2);
-        customAlert.setGraphic(new ImageView(new Image(oponente.imagen2.toURI().toString())));
+        customAlert.setContentText("El pokemon ganador es " +oponente.pokemon);
+        customAlert.setGraphic(new ImageView(new Image(oponente.imagen.toURI().toString())));
         customAlert.getDialogPane().getButtonTypes().addAll(ButtonType.NEXT, ButtonType.CLOSE);
         showAlert1(customAlert);
 
@@ -285,13 +300,13 @@ public class HelloController2 {
 
     }
 
-    public Alert alertaPokemonAliado(Pokemon pokemonSeleccionado) {
+    public Alert alertaPokemonAliado(Pokemon2 pokemonSeleccionado) {
 
         Alert customAlert = new Alert(Alert.AlertType.NONE);
 
         customAlert.setTitle("Pokemon Ganador");
-        customAlert.setContentText("El pokemon ganador es " +pokemonSeleccionado.pokemon);
-        customAlert.setGraphic(new ImageView(new Image(pokemonSeleccionado.imagen.toURI().toString())));
+        customAlert.setContentText("El pokemon ganador es " +pokemonSeleccionado.pokemon2);
+        customAlert.setGraphic(new ImageView(new Image(pokemonSeleccionado.imagen2.toURI().toString())));
         customAlert.getDialogPane().getButtonTypes().addAll(ButtonType.NEXT, ButtonType.CANCEL);
         showAlert2(customAlert);
 
@@ -312,7 +327,6 @@ class Pokemon2 {
     Float vida2;
     String nivel2;
     File imagen2;
-    String tipo2;
 
     Pokemon2(String pokemon2, Float barra2, Float vida2, String nivel2, File imagen2) {
         this.pokemon2 = pokemon2;
@@ -320,7 +334,6 @@ class Pokemon2 {
         this.vida2 = vida2;
         this.nivel2 = nivel2;
         this.imagen2 = imagen2;
-        this.tipo2 = tipo2;
     }
 }
 
