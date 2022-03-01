@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 
 public class HelloController3 {
 
+    private HelloController3 helloController3;
+
     @FXML
     PieChart danoTotal;
     @FXML
@@ -20,8 +22,10 @@ public class HelloController3 {
 
     @FXML
     private void btCancelarStats() {
-        System.exit(1);
+        System.out.println("Cerrar pestaña");
+        HelloController3.stage3.close();
     }
+
 
     public void infoPie(int dado, int recibido){
         ObservableList <PieChart.Data> pieChartData =
@@ -32,6 +36,9 @@ public class HelloController3 {
         danoTotal.setLabelLineLength(10);
         danoTotal.setData(pieChartData);
     }
+
+    static Stage stage3;
+
 
     public void datosBarras(int cont_p1, int cont_p2, int cont_p3, int cont_p4, int cont_p5, int cont_p6){
 
