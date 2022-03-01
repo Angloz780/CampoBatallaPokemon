@@ -126,7 +126,7 @@ public class HelloController2 {
     @FXML
     protected void btAtaques() {
 
-        System.out.println("BotonAtaqueSeleccionado");
+        System.out.println("Boton de ataque seleccionado");
         btAtacar.setVisible(false);
         btCurar.setVisible(false);
         ataqueSeguro.setVisible(true);
@@ -139,7 +139,7 @@ public class HelloController2 {
     @FXML
     protected void subirVida() {
 
-        System.out.println("BotonVidaSeleccionado");
+        System.out.println("Boton de vida seleccionado");
         Random r = new Random();
 
         int rdmVida = r.nextInt(50) + 25;
@@ -158,7 +158,7 @@ public class HelloController2 {
 
         int danoSeguro = 20;
 
-        System.out.println("BotonSeguroSeleccionado");
+        System.out.println("Boton de ataque seguro seleccionado");
 
         pokemonSeleccionado.barra -= danoSeguro;
         vidaMiPokemon.setProgress(pokemonSeleccionado.barra / pokemonSeleccionado.vida);
@@ -175,7 +175,7 @@ public class HelloController2 {
     @FXML
     protected void btArriesgado() {
 
-        System.out.println("BotonArriesgadoSeleccionado");
+        System.out.println("Boton de ataque arriesgado seleccionado");
         Random r = new Random();
 
         int rdmArriesgado = r.nextInt(15) + 10;
@@ -195,7 +195,7 @@ public class HelloController2 {
     @FXML
     protected void btMuyArriesgado() {
 
-        System.out.println("BotonMuyArriesgadoSeleccionado");
+        System.out.println("Boton de ataque muy arriesgado seleccionado");
         Random r = new Random();
 
         int rdmMuyArriesgado = r.nextInt(50);
@@ -215,7 +215,7 @@ public class HelloController2 {
     @FXML
     protected void btCancelar() {
 
-        System.out.println("BotonCancelarSeleccionado");
+        System.out.println("Boton de cancelar seleccionado");
         btAtacar.setVisible(true);
         btCurar.setVisible(true);
         ataqueSeguro.setVisible(false);
@@ -293,7 +293,7 @@ public class HelloController2 {
         customAlert.setTitle("Pokemon Ganador");
         customAlert.setContentText("El pokemon ganador es " +oponente.pokemon);
         customAlert.setGraphic(new ImageView(new Image(oponente.imagen.toURI().toString())));
-        customAlert.getDialogPane().getButtonTypes().addAll(ButtonType.NEXT, ButtonType.CLOSE);
+        customAlert.getDialogPane().getButtonTypes().addAll(ButtonType.NEXT, ButtonType.CANCEL);
         showAlert1(customAlert);
 
         return customAlert;
