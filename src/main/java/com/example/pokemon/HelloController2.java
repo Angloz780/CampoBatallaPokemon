@@ -1,13 +1,17 @@
 package com.example.pokemon;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Random;
@@ -37,6 +41,8 @@ public class HelloController2 {
     Button btCurar;
     @FXML
     Button btAtacar;
+    @FXML
+    Button btMochila;
 
     //Botones de ataque y cancelar
     @FXML
@@ -120,6 +126,8 @@ public class HelloController2 {
         atqueMuyArriesgado.setVisible(false);
         //Cancelar
         cancelar.setVisible(false);
+        //Boton Mochila
+        btMochila.setVisible(false);
 
     }
 
@@ -133,6 +141,7 @@ public class HelloController2 {
         ataqueArriesgado.setVisible(true);
         atqueMuyArriesgado.setVisible(true);
         cancelar.setVisible(true);
+        btMochila.setVisible(true);
 
     }
 
@@ -223,6 +232,32 @@ public class HelloController2 {
         atqueMuyArriesgado.setVisible(false);
         cancelar.setVisible(false);
 
+    }
+
+    Stage stage2;
+
+    @FXML
+    protected void botonMochila(){
+        System.out.println("Botón pulsado pasamos a la pantalla de estadísticas");
+
+        try {
+
+            stage2 = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Mochila.fxml"));
+
+            AnchorPane root = loader.load();
+            Scene scene = new Scene(root, 960, 727);
+
+            stage2.setScene(scene);
+            stage2.show();
+
+            HelloControllerMochila v = loader.getController();
+            v.enviarDatos2(this);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="727.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloController3">
+<AnchorPane prefHeight="727.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloController3">
     <AnchorPane minHeight="575.0" minWidth="790.0" prefHeight="727.0" prefWidth="960.0" style="-fx-background-color: #7D6A87;">
       <children>
          <Text fill="WHITE" layoutX="380.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estadísticas">
