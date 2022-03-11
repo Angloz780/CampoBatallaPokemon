@@ -231,6 +231,7 @@ public class HelloController2 {
         ataqueArriesgado.setVisible(false);
         atqueMuyArriesgado.setVisible(false);
         cancelar.setVisible(false);
+        btMochila.setVisible(false);
 
     }
 
@@ -252,6 +253,7 @@ public class HelloController2 {
             stage2.show();
 
             HelloControllerMochila v = loader.getController();
+            v.mochilaPokemon(pokemonSeleccionado);
             v.enviarDatos2(this);
 
 

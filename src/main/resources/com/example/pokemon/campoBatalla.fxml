@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="727.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloController2">
+<AnchorPane prefHeight="727.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloController2">
     <ImageView fx:id="fondoInterfaz" fitHeight="563.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
     <AnchorPane fx:id="btsSecun" layoutY="541.0" prefHeight="188.0" prefWidth="675.0" style="-fx-background-color: #7D6A87; -fx-border-color: #675073; -fx-border-width: 5;">
-        <Button fx:id="ataqueSeguro" layoutX="115.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#btSeguro" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #00FF51; -fx-border-width: 3;" text="Ataque seguro" textFill="WHITE">
+        <Button fx:id="ataqueSeguro" layoutX="115.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#btSeguro" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #7D6A87; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #00FF51; -fx-border-width: 3;" text="Ataque seguro" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -20,7 +17,7 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="ataqueArriesgado" layoutX="404.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#btArriesgado" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: 000000; -fx-border-color: #FF8C00; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-width: 3;" text="Ataque arriesgado" textFill="WHITE">
+        <Button fx:id="ataqueArriesgado" layoutX="404.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#btArriesgado" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #7D6A87; -fx-border-color: #FF8C00; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-width: 3;" text="Ataque arriesgado" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -28,7 +25,7 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="atqueMuyArriesgado" layoutX="83.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#btMuyArriesgado" prefHeight="45.0" prefWidth="233.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #8B0000; -fx-border-width: 3;" text="Ataque muy arriesgado" textFill="WHITE">
+        <Button fx:id="atqueMuyArriesgado" layoutX="83.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#btMuyArriesgado" prefHeight="45.0" prefWidth="233.0" style="-fx-background-color: #7D6A87; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #8B0000; -fx-border-width: 3;" text="Ataque muy arriesgado" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
@@ -36,7 +33,7 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="cancelar" layoutX="439.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#btCancelar" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #003AFF; -fx-border-width: 3;" text="Cancelar" textFill="WHITE">
+        <Button fx:id="cancelar" layoutX="439.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#btCancelar" prefHeight="43.0" prefWidth="130.0" style="-fx-background-color: #7D6A87; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #003AFF; -fx-border-width: 3;" text="Cancelar" textFill="WHITE">
             <font>
                 <Font name="Noto Sans Bold" size="18.0" />
             </font>
@@ -46,7 +43,7 @@
         </Button>
     </AnchorPane>
     <AnchorPane fx:id="btsPrin" layoutX="675.0" layoutY="541.0" prefHeight="188.0" prefWidth="287.0" style="-fx-background-color: #7D6A87; -fx-border-color: #675073; -fx-border-width: 5;">
-        <Button fx:id="btCurar" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#subirVida" prefHeight="43.0" prefWidth="180.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #00FF00; -fx-border-width: 3;" text="Curar Pokemon" textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="btCurar" alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#subirVida" prefHeight="43.0" prefWidth="180.0" style="-fx-background-color: #7D6A87; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #00FF00; -fx-border-width: 3;" text="Curar Pokemon" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Noto Sans Bold" size="18.0" />
             </font>
@@ -54,7 +51,7 @@
                 <DropShadow />
             </effect>
         </Button>
-        <Button fx:id="btAtacar" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#btAtaques" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #ff0000; -fx-border-width: 3;" text="Atacar" textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="btAtacar" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#btAtaques" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #7D6A87; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #ff0000; -fx-border-width: 3;" text="Atacar" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font name="Noto Sans Bold" size="18.0" />
             </font>
@@ -62,7 +59,7 @@
                 <DropShadow />
             </effect>
         </Button>
-      <Button fx:id="btMochila" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="73.0" mnemonicParsing="false" onMouseClicked="#botonMochila" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: 000000; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #F308B6; -fx-border-width: 3;" text="Mochila" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btMochila" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="73.0" mnemonicParsing="false" onMouseClicked="#botonMochila" prefHeight="38.0" prefWidth="112.0" style="-fx-background-color: #7D6A87; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-color: #F308B6; -fx-border-width: 3;" text="Mochila" textAlignment="CENTER" textFill="WHITE">
           <font>
               <Font name="Noto Sans Bold" size="18.0" />
           </font>
