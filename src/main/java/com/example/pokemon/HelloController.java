@@ -393,7 +393,7 @@ public class HelloController {
     @FXML
     protected void cambiarPantalla() {
 
-        System.out.println("Botón pulsado pasamos al siguiente escenario");
+        System.out.println("Boton pulsado pasamos al siguiente escenario");
 
         try {
 
@@ -419,7 +419,7 @@ public class HelloController {
     @FXML
     protected void cambiarPantalla2() {
 
-        System.out.println("Botón pulsado pasamos a la pantalla de estadísticas");
+        System.out.println("Boton pulsado pasamos a la pantalla de estadísticas");
 
         try {
 

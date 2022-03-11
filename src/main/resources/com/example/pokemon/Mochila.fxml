@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="727.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloControllerMochila">
-    <AnchorPane minHeight="575.0" minWidth="790.0" prefHeight="727.0" prefWidth="960.0" style="-fx-background-color: #7D6A87;">
+<AnchorPane prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pokemon.HelloControllerMochila">
+    <AnchorPane minHeight="575.0" minWidth="600.0" prefHeight="700.0" prefWidth="500.0" style="-fx-background-color: #7D6A87;">
       <children>
-         <Text fill="WHITE" layoutX="410.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mochila">
+         <Text fill="WHITE" layoutX="239.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mochila">
             <font>
-               <Font size="40.0" />
+               <Font size="35.0" />
             </font>
          </Text>
-         <ImageView fx:id="imagenMochila" fitHeight="181.0" fitWidth="200.0" layoutX="380.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="imagenMochila" fitHeight="181.0" fitWidth="200.0" layoutX="200.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+         <ProgressBar fx:id="mochilaBarra" layoutX="200.0" layoutY="298.0" prefWidth="200.0" progress="1.0" />
+         <ImageView fx:id="pocion1" fitHeight="62.0" fitWidth="99.0" layoutX="43.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="pocion2" fitHeight="62.0" fitWidth="99.0" layoutX="162.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="pocion3" fitHeight="62.0" fitWidth="99.0" layoutX="300.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true" />
       </children>
     </AnchorPane>
 </AnchorPane>

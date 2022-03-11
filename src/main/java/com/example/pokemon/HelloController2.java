@@ -171,12 +171,12 @@ public class HelloController2 {
 
         pokemonSeleccionado.barra -= danoSeguro;
         vidaMiPokemon.setProgress(pokemonSeleccionado.barra / pokemonSeleccionado.vida);
-        System.out.println("El ataque seguro1 ha hecho " + danoSeguro +"ps de daño");
+        System.out.println("El ataque seguro1 ha hecho " + danoSeguro +"ps de dano");
         controlarDeLaVidaAliado();
 
         oponente.vida2 -= danoSeguro;
         vidaEnemigo.setProgress(oponente.vida2 / oponente.barra2);
-        System.out.println("El ataque seguro2 ha hecho " + danoSeguro +"ps de daño");
+        System.out.println("El ataque seguro2 ha hecho " + danoSeguro +"ps de dano");
         controlarDeLaVidaEnemigo();
 
     }
@@ -190,13 +190,13 @@ public class HelloController2 {
         int rdmArriesgado = r.nextInt(15) + 10;
         pokemonSeleccionado.barra-= rdmArriesgado;
         vidaMiPokemon.setProgress(pokemonSeleccionado.barra / pokemonSeleccionado.vida);
-        System.out.println("El ataque arriesgado1 ha hecho " + rdmArriesgado+"ps de daño");
+        System.out.println("El ataque arriesgado1 ha hecho " + rdmArriesgado+"ps de dano");
         controlarDeLaVidaAliado();
 
         rdmArriesgado = r.nextInt(15) + 10;
         oponente.vida2 -= rdmArriesgado;
         vidaEnemigo.setProgress(oponente.vida2 / oponente.barra2);
-        System.out.println("El ataque arriesgado2 ha hecho " + rdmArriesgado+"ps de daño");
+        System.out.println("El ataque arriesgado2 ha hecho " + rdmArriesgado+"ps de dano");
         controlarDeLaVidaEnemigo();
 
     }
@@ -210,13 +210,13 @@ public class HelloController2 {
         int rdmMuyArriesgado = r.nextInt(50);
         pokemonSeleccionado.barra -= rdmMuyArriesgado;
         vidaMiPokemon.setProgress(pokemonSeleccionado.barra / pokemonSeleccionado.vida);
-        System.out.println("El ataque muy arriesgado1 ha hecho " + rdmMuyArriesgado+"ps de daño");
+        System.out.println("El ataque muy arriesgado1 ha hecho " + rdmMuyArriesgado+"ps de dano");
         controlarDeLaVidaAliado();
 
         rdmMuyArriesgado = r.nextInt(50);
         oponente.vida2 -= rdmMuyArriesgado;
         vidaEnemigo.setProgress(oponente.vida2 / oponente.barra2);
-        System.out.println("El ataque muy arriesgado2 ha hecho " + rdmMuyArriesgado+"ps de daño");
+        System.out.println("El ataque muy arriesgado2 ha hecho " + rdmMuyArriesgado+"ps de dano");
         controlarDeLaVidaEnemigo();
 
     }
@@ -239,7 +239,8 @@ public class HelloController2 {
 
     @FXML
     protected void botonMochila(){
-        System.out.println("Botón pulsado pasamos a la pantalla de estadísticas");
+
+        System.out.println("Boton pulsado pasamos a la pantalla de mochila");
 
         try {
 
@@ -247,7 +248,7 @@ public class HelloController2 {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Mochila.fxml"));
 
             AnchorPane root = loader.load();
-            Scene scene = new Scene(root, 960, 727);
+            Scene scene = new Scene(root, 575, 700);
 
             stage2.setScene(scene);
             stage2.show();
