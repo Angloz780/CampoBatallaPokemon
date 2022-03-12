@@ -11,18 +11,24 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Optional;
 
 public class HelloController {
 
     Pokemon pokemonSeleccionado;
     int cont = 0;
+    public HelloControllerStats helloControllerStats;
+    public HelloControllerMochila helloControllerMochila;
 
-    Pokemon p1 = new Pokemon("Greninja", 348f, 174f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja2.gif"),"Agua / Siniestro");
-    Pokemon p2 = new Pokemon("Oranguru", 348f, 174f, "LV.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\oranguru.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\oranguru2.gif"),"Normal / Psíquico");
-    Pokemon p3 = new Pokemon("Moltres", 348f, 174f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\moltres.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\moltres2.gif"),"Fuego / Volador");
-    Pokemon p4 = new Pokemon("Salazzle", 340f, 170f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\salazzle.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\salazzle2.gif"),"Veneno / Fuego");
-    Pokemon p5 = new Pokemon("Metagross", 364f, 174f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\metagross.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\metagross2.gif"),"Acero / Psíquico");
-    Pokemon p6 = new Pokemon("Urshifu", 384f, 192f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\ursifu.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\ursifu2.gif"),"Lucha / Agua");
+    ArrayList<Pokemon> ListaPokemon = new ArrayList<>();
+
+    Pokemon p1 = new Pokemon("Greninja", 100f, 50f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja2.gif"),"Agua / Siniestro");
+    Pokemon p2 = new Pokemon("Oranguru", 100f, 50f, "LV.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\oranguru.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\oranguru2.gif"),"Normal / Psíquico");
+    Pokemon p3 = new Pokemon("Moltres", 100f, 50f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\moltres.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\moltres2.gif"),"Fuego / Volador");
+    Pokemon p4 = new Pokemon("Salazzle", 100f, 50f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\salazzle.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\salazzle2.gif"),"Veneno / Fuego");
+    Pokemon p5 = new Pokemon("Metagross", 100f, 50f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\metagross.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\metagross2.gif"),"Acero / Psíquico");
+    Pokemon p6 = new Pokemon("Urshifu", 100f, 50f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\ursifu.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\ursifu2.gif"),"Lucha / Agua");
 
 
     //Greninja
@@ -113,11 +119,20 @@ public class HelloController {
     @FXML
     Button boton1;
     @FXML
-    Button boton2;
+    Button btMochila;
+    @FXML
+    Button btStats;
 
 
     @FXML
     public void initialize() {
+
+        ListaPokemon.add(p1);
+        ListaPokemon.add(p2);
+        ListaPokemon.add(p3);
+        ListaPokemon.add(p4);
+        ListaPokemon.add(p5);
+        ListaPokemon.add(p6);
 
         //Greninja
         Image foto1 = new Image(p1.imagen.toURI().toString());
@@ -201,6 +216,7 @@ public class HelloController {
         pokemonSeleccionado = p1;
 
         boton1.setText("Siguiente");
+        btMochila.setText("Mochila");
     }
 
     @FXML
@@ -236,6 +252,7 @@ public class HelloController {
         pokemonSeleccionado = p2;
 
         boton1.setText("Siguiente");
+        btMochila.setText("Mochila");
     }
 
     @FXML
@@ -271,6 +288,7 @@ public class HelloController {
         pokemonSeleccionado = p3;
 
         boton1.setText("Siguiente");
+        btMochila.setText("Mochila");
     }
 
     @FXML
@@ -306,6 +324,7 @@ public class HelloController {
         pokemonSeleccionado = p4;
 
         boton1.setText("Siguiente");
+        btMochila.setText("Mochila");
     }
 
     @FXML
@@ -341,6 +360,7 @@ public class HelloController {
         pokemonSeleccionado = p5;
 
         boton1.setText("Siguiente");
+        btMochila.setText("Mochila");
     }
 
     @FXML
@@ -376,6 +396,7 @@ public class HelloController {
         pokemonSeleccionado = p6;
 
         boton1.setText("Siguiente");
+        btMochila.setText("Mochila");
     }
 
     Stage stage2;
@@ -411,6 +432,78 @@ public class HelloController {
         }
     }
 
+    Stage stage3;
+    HelloControllerMochila v = null;
+
+    @FXML
+    protected void botonMochila(){
+
+        System.out.println("Boton pulsado pasamos a la pantalla de mochila");
+
+        try {
+
+            if (stage3 == null || !stage3.isShowing()) {
+
+                stage3 = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Mochila.fxml"));
+
+                AnchorPane root = loader.load();
+                Scene scene = new Scene(root, 594, 502);
+
+                stage3.setScene(scene);
+                stage3.show();
+                v = loader.getController();
+
+                v.initialize(pokemonSeleccionado);
+                v.enviarDatos2(this);
+
+            }
+
+            v.initialize(pokemonSeleccionado);
+            v.enviarDatos2(this);
+
+
+        } catch (IOException v) {
+            v.printStackTrace();
+        }
+    }
+
+    HelloControllerStats a = null;
+
+    @FXML
+    protected void pulsarStats(){
+
+        System.out.println("Boton pulsado pasamos a la pantalla de estadisticas");
+
+        try {
+
+            if (stage2 == null || !stage2.isShowing()) {
+
+                stage2 = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Estadisticas.fxml"));
+
+                AnchorPane root = loader.load();
+                Scene scene = new Scene(root, 960, 727);
+
+                stage2.setScene(scene);
+                stage2.show();
+                stage2.setResizable(false);
+                a = loader.getController();
+
+                a.enviarDatos3(this);
+                a.initializeStats();
+
+            }
+
+            a.enviarDatos3(this);
+            a.initializeStats();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public Float calcularVida(Pokemon pokemon) {
         return Float.parseFloat(String.valueOf(pokemon.vida / pokemon.barra));
     }
@@ -422,6 +515,50 @@ public class HelloController {
         barra4.setProgress(p4.vida / p4.barra);
         barra5.setProgress(p5.vida / p5.barra);
         barra6.setProgress(p6.vida / p6.barra);
+        manejarVida();
+    }
+
+    public void manejarVida(){
+        controlDeLaVida();
+    }
+
+    private void controlDeLaVida(){
+        if(p1.vida >= p1.barra && p2.vida >= p2.barra && p3.vida >= p3.barra && p4.vida >= p4.barra && p5.vida >= p5.barra && p6.vida >= p6.barra){
+            showAlert2(alertaPokemonVida());
+        }
+    }
+
+    Stage stage4;
+
+    private void showAlert2(Alert alert) {
+
+        Optional<ButtonType> resultado = alert.showAndWait();
+
+        if (resultado.get() == ButtonType.NO) {
+            System.exit(0);
+        }else{
+            stage4.close();
+        }
+    }
+
+    public Alert alertaPokemonVida() {
+
+        Alert customAlert = new Alert(Alert.AlertType.NONE);
+
+        customAlert.setTitle("Todos los pokemons estan al 100% de su vida");
+        customAlert.getDialogPane().getButtonTypes().addAll(ButtonType.NEXT, ButtonType.CANCEL);
+        showAlert2(customAlert);
+
+        return customAlert;
+
+    }
+
+    void enviarDatos4(HelloControllerMochila helloControllerMochila){
+        this.helloControllerMochila = helloControllerMochila;
+    }
+
+    void enviarDatos5(HelloControllerStats helloControllerStats){
+        this.helloControllerStats = helloControllerStats;
     }
 }
 

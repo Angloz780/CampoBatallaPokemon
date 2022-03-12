@@ -1,17 +1,13 @@
 package com.example.pokemon;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Random;
@@ -25,10 +21,10 @@ public class HelloController2 {
 
     Fondo f1 = new Fondo(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\campo.png"));
 
-    Pokemon2 p7 = new Pokemon2("Drampa", 360f, 360f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\drampa.gif"));
-    Pokemon2 p8 = new Pokemon2("Melmetal", 474f, 474f, "Lv.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\melmetal.gif"));
-    Pokemon2 p9 = new Pokemon2("Toxtricity", 354f, 354f,"Lv.50", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\toxtricity.gif"));
-    Pokemon2 p10 = new Pokemon2("Lugia", 416f, 416f, "Lv.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\lugia.gif"));
+    Pokemon2 p7 = new Pokemon2("Drampa", 100f, 100f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\drampa.gif"));
+    Pokemon2 p8 = new Pokemon2("Melmetal", 100f, 100f, "Lv.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\melmetal.gif"));
+    Pokemon2 p9 = new Pokemon2("Toxtricity", 100f, 100f,"Lv.50", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\toxtricity.gif"));
+    Pokemon2 p10 = new Pokemon2("Lugia", 100f, 100f, "Lv.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\lugia.gif"));
 
     //Imagen campo de batalla
     @FXML
@@ -41,8 +37,6 @@ public class HelloController2 {
     Button btCurar;
     @FXML
     Button btAtacar;
-    @FXML
-    Button btMochila;
 
     //Botones de ataque y cancelar
     @FXML
@@ -124,8 +118,6 @@ public class HelloController2 {
         atqueMuyArriesgado.setVisible(false);
         //Cancelar
         cancelar.setVisible(false);
-        //Boton Mochila
-        btMochila.setVisible(false);
 
     }
 
@@ -139,7 +131,6 @@ public class HelloController2 {
         ataqueArriesgado.setVisible(true);
         atqueMuyArriesgado.setVisible(true);
         cancelar.setVisible(true);
-        btMochila.setVisible(true);
 
     }
 
@@ -154,6 +145,7 @@ public class HelloController2 {
         vidaMiPokemon.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
         System.out.println("Curacion num1 de " + rdmVida);
         HelloController.actualizarInterfaz();
+        vidaMaximaPokemon();
 
         rdmVida = r.nextInt(50) + 25;
         oponente.vida2 += rdmVida;
@@ -232,45 +224,10 @@ public class HelloController2 {
         ataqueArriesgado.setVisible(false);
         atqueMuyArriesgado.setVisible(false);
         cancelar.setVisible(false);
-        btMochila.setVisible(false);
 
     }
 
-    Stage stage3;
-    HelloControllerMochila v = null;
 
-    @FXML
-    protected void botonMochila(){
-
-        System.out.println("Boton pulsado pasamos a la pantalla de mochila");
-
-        try {
-
-            if (stage3 == null || !stage3.isShowing()) {
-
-                stage3 = new Stage();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Mochila.fxml"));
-
-                AnchorPane root = loader.load();
-                Scene scene = new Scene(root, 594, 502);
-
-                stage3.setScene(scene);
-                stage3.show();
-                v = loader.getController();
-
-                v.initialize(pokemonSeleccionado);
-                v.enviarDatos2(this);
-
-            }
-
-            v.initialize(pokemonSeleccionado);
-            v.enviarDatos2(this);
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     protected void cambiartextoEnemigo() {
@@ -305,6 +262,13 @@ public class HelloController2 {
 
     }
 
+    private  void vidaMaximaPokemon(){
+
+        if(pokemonSeleccionado.vida >= pokemonSeleccionado.barra){
+            showAlert3(alertaVidaMaxima());
+        }
+    }
+
     private void showAlert1(Alert alert) {
 
         Optional<ButtonType> resultado = alert.showAndWait();
@@ -316,6 +280,17 @@ public class HelloController2 {
         }
     }
     private void showAlert2(Alert alert) {
+
+        Optional<ButtonType> resultado = alert.showAndWait();
+
+        if (resultado.get() == ButtonType.NO) {
+            System.exit(0);
+        }else{
+            HelloController.stage2.close();
+        }
+    }
+
+    private void showAlert3(Alert alert) {
 
         Optional<ButtonType> resultado = alert.showAndWait();
 
@@ -350,6 +325,18 @@ public class HelloController2 {
         showAlert2(customAlert);
 
         return customAlert;
+    }
+
+    public Alert alertaVidaMaxima() {
+
+        Alert customAlert = new Alert(Alert.AlertType.NONE);
+
+        customAlert.setTitle("El Pokemon esta al 100% de su vida");
+        customAlert.getDialogPane().getButtonTypes().addAll(ButtonType.OK);
+        showAlert2(customAlert);
+
+        return customAlert;
+
     }
 
     void enviarDatos(HelloController HelloController){

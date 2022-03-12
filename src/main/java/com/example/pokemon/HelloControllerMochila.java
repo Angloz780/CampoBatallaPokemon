@@ -1,17 +1,26 @@
 package com.example.pokemon;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.Optional;
 
 public class HelloControllerMochila {
 
+    int cont1 = 0;
+    int cont2 = 0;
+    int cont3 = 0;
+    int cont4 = 0;
+
     Pokemon pokemonSeleccionado;
-    private HelloController2 HelloController2;
+    private HelloController helloController;
 
     Pociones poty1 = new Pociones(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\pocion1.png"), "Esta pocion cura 10 puntos de vida");
     Pociones poty2 = new Pociones(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\pocion2.png"), "Esta pocion cura 20 puntos de vida");
@@ -69,32 +78,36 @@ public class HelloControllerMochila {
         info4.setText(poty4.info);
 
         mochilaBarra.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
+        controlBarraVida();
     }
 
     @FXML
     private void pulsarPocion1() {
+
         System.out.println("Has elegido la pocion 1");
+        cont1++;
 
         pocion1.setStyle("-fx-opacity:1");
         pocion2.setStyle("-fx-opacity:0.25");
         pocion3.setStyle("-fx-opacity:0.25");
         pocion4.setStyle("-fx-opacity:0.25");
 
-        Integer cont = 0;
-
-        System.out.println( pokemonSeleccionado.vida);
+        System.out.println(pokemonSeleccionado.vida);
 
         pokemonSeleccionado.vida += 10;
 
-        System.out.println(cont);
-        HelloController2.actualizarInterfaz2();
+        System.out.println(cont1);
+        helloController.actualizarInterfaz();
 
         mochilaBarra.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
+
     }
 
     @FXML
     private void pulsarPocion2() {
+
         System.out.println("Has elegido la pocion 2");
+        cont2++;
 
         pocion1.setStyle("-fx-opacity:0.25");
         pocion2.setStyle("-fx-opacity:1");
@@ -108,14 +121,16 @@ public class HelloControllerMochila {
         pokemonSeleccionado.vida += 20;
 
         System.out.println(cont);
-        HelloController2.actualizarInterfaz2();
+        helloController.actualizarInterfaz();
 
         mochilaBarra.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
     }
 
     @FXML
     private void pulsarPocion3() {
+
         System.out.println("Has elegido la pocion 3");
+        cont3++;
 
         pocion1.setStyle("-fx-opacity:0.25");
         pocion2.setStyle("-fx-opacity:0.25");
@@ -126,14 +141,16 @@ public class HelloControllerMochila {
 
         pokemonSeleccionado.vida += (pokemonSeleccionado.vida * 10 / 100);
 
-        HelloController2.actualizarInterfaz2();
+        helloController.actualizarInterfaz();
 
         mochilaBarra.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
     }
 
     @FXML
     private void pulsarPocion4() {
+
         System.out.println("Has elegido la pocion 4");
+        cont4++;
 
         pocion1.setStyle("-fx-opacity:0.25");
         pocion2.setStyle("-fx-opacity:0.25");
@@ -144,13 +161,45 @@ public class HelloControllerMochila {
 
         pokemonSeleccionado.vida += (pokemonSeleccionado.vida * 20 / 100);
 
-        HelloController2.actualizarInterfaz2();
+        helloController.actualizarInterfaz();
 
         mochilaBarra.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
     }
 
-    void enviarDatos2(HelloController2 HelloController2){
-        this.HelloController2 = HelloController2;
+    void enviarDatos2(HelloController helloController){
+        this.helloController = helloController;
+        helloController.enviarDatos4(this);
+    }
+
+    private void controlBarraVida(){
+        if(pokemonSeleccionado.vida >= pokemonSeleccionado.barra){
+            showAlert2(alertaBarrVida());
+        }
+    }
+
+    Stage stage3;
+
+    private void showAlert2(Alert alert) {
+
+        Optional<ButtonType> resultado = alert.showAndWait();
+
+        if (resultado.get() == ButtonType.NO) {
+            System.exit(0);
+        }else{
+            stage3.close();
+        }
+    }
+
+    public Alert alertaBarrVida() {
+
+        Alert customAlert = new Alert(Alert.AlertType.NONE);
+
+        customAlert.setTitle("Todos los pokemons estan al 100% de su vida");
+        customAlert.getDialogPane().getButtonTypes().addAll(ButtonType.NEXT, ButtonType.CANCEL);
+        showAlert2(customAlert);
+
+        return customAlert;
+
     }
 
     class Pociones{
