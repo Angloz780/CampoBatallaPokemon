@@ -23,13 +23,12 @@ public class HelloController {
 
     ArrayList<Pokemon> ListaPokemon = new ArrayList<>();
 
-    Pokemon p1 = new Pokemon("Greninja", 100f, 100f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja2.gif"),"Agua / Siniestro");
+    Pokemon p1 = new Pokemon("Greninja", 100f, 75f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\greninja2.gif"),"Agua / Siniestro");
     Pokemon p2 = new Pokemon("Oranguru", 100f, 100f, "LV.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\oranguru.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\oranguru2.gif"),"Normal / Psíquico");
     Pokemon p3 = new Pokemon("Moltres", 100f, 100f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\moltres.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\moltres2.gif"),"Fuego / Volador");
     Pokemon p4 = new Pokemon("Salazzle", 100f, 100f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\salazzle.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\salazzle2.gif"),"Veneno / Fuego");
     Pokemon p5 = new Pokemon("Metagross", 100f, 100f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\metagross.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\metagross2.gif"),"Acero / Psíquico");
     Pokemon p6 = new Pokemon("Urshifu", 100f, 100f, "LV.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\ursifu.gif"), new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\ursifu2.gif"),"Lucha / Agua");
-
 
     //Greninja
     @FXML
@@ -450,7 +449,7 @@ public class HelloController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Mochila.fxml"));
 
                 AnchorPane root = loader.load();
-                Scene scene = new Scene(root, 594, 502);
+                Scene scene = new Scene(root, 594, 650);
 
                 stage3.setScene(scene);
                 stage3.show();

@@ -26,6 +26,9 @@ public class HelloControllerMochila {
     Pociones poty2 = new Pociones(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\pocion2.png"), "Esta pocion cura 20 puntos de vida");
     Pociones poty3 = new Pociones(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\pocion3.png"), "Esta pocion cura un 10% puntos de vida");
     Pociones poty4 = new Pociones(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\pocion4.png"), "Esta pocion cura un 20% puntos de vida");
+    Pociones poty5 = new Pociones(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\fuego.png"), "Esta pocion te cura del efecto fuego");
+    Pociones poty6 = new Pociones(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\hielo.png"), "Esta pocion te cura del efecto hielo");
+    Pociones poty7 = new Pociones(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\veneno.png"),"Esta pocion te cura del efecto veneno");
 
     @FXML
     ImageView imagenMochila;
@@ -54,6 +57,22 @@ public class HelloControllerMochila {
     Text info4;
 
     @FXML
+    ImageView fuego;
+    @FXML
+    Text info5;
+
+    @FXML
+    ImageView hielo;
+    @FXML
+    Text info6;
+
+    @FXML
+    ImageView veneno;
+    @FXML
+    Text info7;
+
+
+    @FXML
     public void initialize(Pokemon pokemonSeleccionado) {
 
         this.pokemonSeleccionado = pokemonSeleccionado;
@@ -77,6 +96,18 @@ public class HelloControllerMochila {
         pocion4.setImage(foto4);
         info4.setText(poty4.info);
 
+        Image foto5 = new Image(poty5.pocion.toURI().toString());
+        fuego.setImage(foto5);
+        info5.setText(poty5.info);
+
+        Image foto6 = new Image(poty6.pocion.toURI().toString());
+        hielo.setImage(foto6);
+        info6.setText(poty6.info);
+
+        Image foto7 = new Image(poty7.pocion.toURI().toString());
+        veneno.setImage(foto7);
+        info7.setText(poty7.info);
+
         mochilaBarra.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
         controlBarraVida();
     }
@@ -91,6 +122,9 @@ public class HelloControllerMochila {
         pocion2.setStyle("-fx-opacity:0.25");
         pocion3.setStyle("-fx-opacity:0.25");
         pocion4.setStyle("-fx-opacity:0.25");
+        fuego.setStyle("-fx-opacity:0.25");
+        hielo.setStyle("-fx-opacity:0.25");
+        veneno.setStyle("-fx-opacity:0.25");
 
         System.out.println(pokemonSeleccionado.vida);
 
@@ -113,6 +147,9 @@ public class HelloControllerMochila {
         pocion2.setStyle("-fx-opacity:1");
         pocion3.setStyle("-fx-opacity:0.25");
         pocion4.setStyle("-fx-opacity:0.25");
+        fuego.setStyle("-fx-opacity:0.25");
+        hielo.setStyle("-fx-opacity:0.25");
+        veneno.setStyle("-fx-opacity:0.25");
 
         Integer cont = 0;
 
@@ -136,6 +173,9 @@ public class HelloControllerMochila {
         pocion2.setStyle("-fx-opacity:0.25");
         pocion3.setStyle("-fx-opacity:1");
         pocion4.setStyle("-fx-opacity:0.25");
+        fuego.setStyle("-fx-opacity:0.25");
+        hielo.setStyle("-fx-opacity:0.25");
+        veneno.setStyle("-fx-opacity:0.25");
 
         System.out.println( pokemonSeleccionado.vida);
 
@@ -156,6 +196,9 @@ public class HelloControllerMochila {
         pocion2.setStyle("-fx-opacity:0.25");
         pocion3.setStyle("-fx-opacity:0.25");
         pocion4.setStyle("-fx-opacity:1");
+        fuego.setStyle("-fx-opacity:0.25");
+        hielo.setStyle("-fx-opacity:0.25");
+        veneno.setStyle("-fx-opacity:0.25");
 
         System.out.println(pokemonSeleccionado.vida);
 
@@ -164,6 +207,48 @@ public class HelloControllerMochila {
         helloController.actualizarInterfaz();
 
         mochilaBarra.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
+    }
+
+    @FXML
+    private  void pulsarFuego(){
+
+        System.out.println("Has elegido las pocion que cura el efecto de fuego");
+
+        pocion1.setStyle("-fx-opacity:0.25");
+        pocion2.setStyle("-fx-opacity:0.25");
+        pocion3.setStyle("-fx-opacity:0.25");
+        pocion4.setStyle("-fx-opacity:0.25");
+        fuego.setStyle("-fx-opacity:1");
+        hielo.setStyle("-fx-opacity:0.25");
+        veneno.setStyle("-fx-opacity:0.25");
+    }
+
+    @FXML
+    private  void pulsarHielo(){
+
+        System.out.println("Has elegido las pocion que cura el efecto de hielo");
+
+        pocion1.setStyle("-fx-opacity:0.25");
+        pocion2.setStyle("-fx-opacity:0.25");
+        pocion3.setStyle("-fx-opacity:0.25");
+        pocion4.setStyle("-fx-opacity:0.25");
+        fuego.setStyle("-fx-opacity:0.25");
+        hielo.setStyle("-fx-opacity:1");
+        veneno.setStyle("-fx-opacity:0.25");
+    }
+
+    @FXML
+    private  void pulsarVeneno(){
+
+        System.out.println("Has elegido las pocion que cura el efecto de veneno");
+
+        pocion1.setStyle("-fx-opacity:0.25");
+        pocion2.setStyle("-fx-opacity:0.25");
+        pocion3.setStyle("-fx-opacity:0.25");
+        pocion4.setStyle("-fx-opacity:0.25");
+        fuego.setStyle("-fx-opacity:0.25");
+        hielo.setStyle("-fx-opacity:0.25");
+        veneno.setStyle("-fx-opacity:1");
     }
 
     void enviarDatos2(HelloController helloController){
@@ -177,16 +262,12 @@ public class HelloControllerMochila {
         }
     }
 
-    Stage stage3;
-
     private void showAlert2(Alert alert) {
 
         Optional<ButtonType> resultado = alert.showAndWait();
 
         if (resultado.get() == ButtonType.NO) {
             System.exit(0);
-        }else{
-            stage3.close();
         }
     }
 
