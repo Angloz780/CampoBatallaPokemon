@@ -78,6 +78,9 @@ public class HelloController2 {
     @FXML
     Text PsEnemigo;
 
+    @FXML
+    ImageView efectos;
+
     private HelloController HelloController;
 
     public void Pokemones(Pokemon pokemonSeleccionado) {
@@ -341,10 +344,6 @@ public class HelloController2 {
 
     void enviarDatos(HelloController HelloController){
         this.HelloController=HelloController;
-    }
-
-    public void actualizarInterfaz2() {
-        vidaMiPokemon.setProgress(pokemonSeleccionado.vida / pokemonSeleccionado.barra);
     }
 }
 
