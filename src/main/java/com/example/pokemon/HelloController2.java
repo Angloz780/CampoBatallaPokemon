@@ -18,13 +18,14 @@ public class HelloController2 {
     Pokemon2 oponente;
 
     ArrayList <Pokemon2> ListaPokemon = new ArrayList<>();
+    ArrayList <Pokemon2> pokemonCapturado = new ArrayList<>();
 
     Fondo f1 = new Fondo(new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\campo.png"));
 
-    Pokemon2 p7 = new Pokemon2("Drampa", 100f, 100f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\drampa.gif"));
-    Pokemon2 p8 = new Pokemon2("Melmetal", 100f, 100f, "Lv.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\melmetal.gif"));
-    Pokemon2 p9 = new Pokemon2("Toxtricity", 100f, 100f,"Lv.50", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\toxtricity.gif"));
-    Pokemon2 p10 = new Pokemon2("Lugia", 100f, 100f, "Lv.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\lugia.gif"));
+    Pokemon2 p7 = new Pokemon2("Drampa", 100f, 100f, "LV.65", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\drampa.gif"), false);
+    Pokemon2 p8 = new Pokemon2("Melmetal", 100f, 100f, "Lv.45", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\melmetal.gif"), false);
+    Pokemon2 p9 = new Pokemon2("Toxtricity", 100f, 100f,"Lv.50", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\toxtricity.gif"), false);
+    Pokemon2 p10 = new Pokemon2("Lugia", 100f, 100f, "Lv.75", new File("src\\main\\java\\com\\example\\pokemon\\Imagenes\\lugia.gif"), false);
 
     //Imagen campo de batalla
     @FXML
@@ -79,7 +80,7 @@ public class HelloController2 {
     Text PsEnemigo;
 
     @FXML
-    ImageView efectos;
+    Button btCapturar;
 
     private HelloController HelloController;
 
@@ -121,6 +122,8 @@ public class HelloController2 {
         atqueMuyArriesgado.setVisible(false);
         //Cancelar
         cancelar.setVisible(false);
+        //Capturar Pokemon
+        btCapturar.setVisible(false);
 
     }
 
@@ -134,6 +137,7 @@ public class HelloController2 {
         ataqueArriesgado.setVisible(true);
         atqueMuyArriesgado.setVisible(true);
         cancelar.setVisible(true);
+        btCapturar.setVisible(true);
 
     }
 
@@ -160,6 +164,8 @@ public class HelloController2 {
     protected void btSeguro() {
 
         int danoSeguro = 20;
+
+        int i = 1;
 
         System.out.println("Boton de ataque seguro seleccionado");
 
@@ -199,6 +205,8 @@ public class HelloController2 {
     @FXML
     protected void btMuyArriesgado() {
 
+        int i = 2;
+
         System.out.println("Boton de ataque muy arriesgado seleccionado");
         Random r = new Random();
 
@@ -227,10 +235,37 @@ public class HelloController2 {
         ataqueArriesgado.setVisible(false);
         atqueMuyArriesgado.setVisible(false);
         cancelar.setVisible(false);
+        btCapturar.setVisible(false);
 
     }
 
+    @FXML
+    protected void pulsarCaptura(){
 
+        System.out.println("Has seleccionado el boton de capturar Pokemon");
+        Random r = new Random();
+
+        boolean pokeball = r.nextBoolean();
+        oponente.captura = pokeball;
+        controlCap();
+    }
+
+    public void controlCap() {
+
+        Random r = new Random();
+        int num;
+
+        if (!oponente.captura){
+            num = r.nextInt(2) + 1;
+            if(num == 1){
+                btSeguro();
+            }else
+                btMuyArriesgado();
+        }else{
+            System.out.println("El Pokemon enemigo ha sido capturado");
+            showAlert4(alertaPokemonCapturado(oponente));
+        }
+    }
 
     @FXML
     protected void cambiartextoEnemigo() {
@@ -304,6 +339,17 @@ public class HelloController2 {
         }
     }
 
+    private void showAlert4(Alert alert) {
+
+        Optional<ButtonType> resultado = alert.showAndWait();
+
+        if (resultado.get() == ButtonType.NO) {
+            System.exit(0);
+        }else{
+            HelloController.stage2.close();
+        }
+    }
+
     public Alert alertaPokemonEnemigo(Pokemon pokemonSeleccionado) {
 
         Alert customAlert = new Alert(Alert.AlertType.NONE);
@@ -342,9 +388,24 @@ public class HelloController2 {
 
     }
 
+    public Alert alertaPokemonCapturado(Pokemon2 oponente) {
+
+        Alert customAlert = new Alert(Alert.AlertType.NONE);
+
+        customAlert.setTitle("Pokemon ha sido capturado");
+        customAlert.setContentText("El pokemon capturado ha sido" +oponente.pokemon2);
+        customAlert.setGraphic(new ImageView(new Image(oponente.imagen2.toURI().toString())));
+        customAlert.getDialogPane().getButtonTypes().addAll(ButtonType.NEXT, ButtonType.CLOSE);
+        showAlert4(customAlert);
+
+        return customAlert;
+    }
+
     void enviarDatos(HelloController HelloController){
         this.HelloController=HelloController;
+        HelloController.enviarDatos8(this);
     }
+
 }
 
 class Pokemon2 {
@@ -354,13 +415,15 @@ class Pokemon2 {
     Float vida2;
     String nivel2;
     File imagen2;
+    boolean captura;
 
-    Pokemon2(String pokemon2, Float barra2, Float vida2, String nivel2, File imagen2) {
+    Pokemon2(String pokemon2, Float barra2, Float vida2, String nivel2, File imagen2, boolean captura) {
         this.pokemon2 = pokemon2;
         this.barra2 = barra2;
         this.vida2 = vida2;
         this.nivel2 = nivel2;
         this.imagen2 = imagen2;
+        this.captura = captura;
     }
 }
 

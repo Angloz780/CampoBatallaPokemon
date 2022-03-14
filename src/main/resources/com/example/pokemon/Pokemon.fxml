@@ -214,10 +214,15 @@
                  <Font name="Gadugi Bold" size="14.0" />
              </font>
          </Button>
-         <Button fx:id="btStats" layoutX="348.0" layoutY="522.0" mnemonicParsing="false" onMouseClicked="#pulsarStats" text="Estadisticas">
+         <Button fx:id="btStats" layoutX="200.0" layoutY="522.0" mnemonicParsing="false" onMouseClicked="#pulsarStats" text="Estadisticas">
           <font>
               <Font name="Gadugi Bold" size="14.0" />
           </font>
+         </Button>
+         <Button fx:id="btCaja" layoutX="524.0" layoutY="522.0" mnemonicParsing="false" onMouseClicked="#pulsarCaja" text="Caja">
+             <font>
+                 <Font name="Gadugi Bold" size="14.0" />
+             </font>
          </Button>
       </children>
    </AnchorPane>

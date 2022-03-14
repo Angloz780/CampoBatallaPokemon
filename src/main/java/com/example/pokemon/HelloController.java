@@ -20,6 +20,8 @@ public class HelloController {
     int cont = 0;
     public HelloControllerStats helloControllerStats;
     public HelloControllerMochila helloControllerMochila;
+    public MostrarCapturados mostrarCapturados;
+    public HelloController2 helloController2;
 
     ArrayList<Pokemon> ListaPokemon = new ArrayList<>();
 
@@ -123,7 +125,7 @@ public class HelloController {
     Button btStats;
 
     @FXML
-    ImageView estado1;
+    Button btCaja;
 
     @FXML
     public void initialize() {
@@ -504,6 +506,41 @@ public class HelloController {
         }
     }
 
+    Stage stage5;
+    MostrarCapturados c = null;
+
+    @FXML
+    protected void pulsarCaja(){
+
+        System.out.println("Boton pulsado pasamos a la pantalla de caja");
+
+        try {
+
+            if (stage5 == null || !stage5.isShowing()) {
+
+                stage5 = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CajaCapturados.fxml"));
+
+                AnchorPane root = loader.load();
+                Scene scene = new Scene(root, 594, 650);
+
+                stage5.setScene(scene);
+                stage5.show();
+                stage5.setResizable(false);
+                c.enviarDatos6(this);
+                c.initializeCapturas();
+
+            }
+
+            c.enviarDatos6(this);
+            c.initializeCapturas();
+
+        } catch (IOException c) {
+            c.printStackTrace();
+        }
+
+    }
+
     public Float calcularVida(Pokemon pokemon) {
         return Float.parseFloat(String.valueOf(pokemon.vida / pokemon.barra));
     }
@@ -553,12 +590,20 @@ public class HelloController {
 
     }
 
+    void enviarDatos8(HelloController2 helloController2){
+        this.helloController2 = helloController2;
+    }
+
     void enviarDatos4(HelloControllerMochila helloControllerMochila){
         this.helloControllerMochila = helloControllerMochila;
     }
 
     void enviarDatos5(HelloControllerStats helloControllerStats){
         this.helloControllerStats = helloControllerStats;
+    }
+
+    void enviarDatos7(MostrarCapturados mostrarCapturados){
+        this.mostrarCapturados = mostrarCapturados;
     }
 }
 
